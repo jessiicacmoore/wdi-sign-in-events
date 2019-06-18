@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const closeBtn = document.querySelector('.close');
   const submitBtn = document.querySelector('.submit');
   const modal = document.querySelector('.modal');
+  const signInForm = document.querySelector('.getstarted')
   const inputs = document.querySelectorAll('input');
 
   // When the user presses the .signin button, display the modal window
@@ -19,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function(){
   submitBtn.addEventListener('click', () => {
     inputs.forEach(input => {
       input.classList.add('error');
-    })
+    });
   });
+
+  // When the user puts their cursor in one of the input fields, remove the .error class
+  inputs.forEach(input => input.addEventListener('focus', () => {
+
+    if (input.classList.contains('error')) {
+    input.classList.remove('error');
+    };
+  }));  
+
 });
